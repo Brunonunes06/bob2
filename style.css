@@ -1,0 +1,377 @@
+:root {
+  --popilula: #f15a2b;
+  --olho: #f4ea9a;
+}
+
+body {
+  /* Define a cor fundo para o corpo da pagina  */
+  background-color: aquamarine;
+}
+
+h1 {
+  /* Centaliza o texto */
+  text-align: center;
+  /* Define a cor do texto como azul */
+  color: black;
+  /* Define o Tamanho da fonte como 60 pixels */
+  font-size: 60px;
+  /* Define a cor do fundo para elemento h1 */
+  background-color: rgb(11, 96, 234);
+}
+
+img {
+  /* Adiciona uma borda pontilhada vermelha de 3 pixels */
+  border: 3px dotted red;
+  /* Adiciona uma margem a esquerda de 841 pixels */
+  margin-left: 841px;
+  /*  Isso ativa o modelo de layout Flexbox para seus filhos diretos (neste caso, a tag <img>). */
+  display: flex;
+  /* CSS é utilizada principalmente para centralizar horizontalmente um elemento de nível de bloco dentro do seu elemento */
+  margin: auto;
+  /* Centra o texto horizontalmente dentro do elemento. */
+  text-align: center;
+}
+
+/* ==============================
+   ÁGUA-VIVA (elemento decorativo rosa)
+   ============================== */
+
+.agua-viva {
+  position: relative;
+  /* Permite posicionar elementos filhos (tentáculos) de forma absoluta */
+  width: 150px;
+  /* Largura do corpo da água-viva */
+  height: 100px;
+  /* Altura do corpo da água-viva */
+  background: #ff6cc4;
+  /* Cor principal da água-viva */
+  border-radius: 100px 100px 40px 40px;
+  /* Deixa o topo mais arredondado e base mais reta */
+  box-shadow: inset 0 -8px 0 #e05fae;
+  /* Sombra interna simulando profundidade */
+  display: flex;
+  /* Para centralizar ou alinhar internamente */
+  text-align: center;
+  /* Centraliza conteúdo de texto, se houver */
+  margin: auto;
+  /* Centraliza horizontalmente */
+  bottom: -20px;
+  /* Move ligeiramente para baixo */
+}
+
+/* Pontos brilhantes da água-viva */
+.agua-viva::before {
+  content: '';
+  /* Cria um pseudo-elemento sem conteúdo textual */
+  position: absolute;
+  /* Permite posicionar livremente dentro do elemento principal */
+  top: 20px;
+  left: 25px;
+  width: 20px;
+  height: 20px;
+  background: #ff94d0;
+  border-radius: 50%;
+  /* Deixa o círculo perfeito */
+  /* Cria outros círculos com sombras duplicadas */
+  box-shadow: 50px 0 #ff94d0, 80px 10px #ff94d0;
+}
+
+/* Tentáculos da água-viva */
+.tentaculo {
+  position: absolute;
+  bottom: -40px;
+  width: 15px;
+  height: 45px;
+  background: #ff6cc4;
+  border-radius: 10px;
+}
+
+/* Cada tentáculo recebe uma animação com atraso diferente */
+.t1 {
+  left: 20px;
+  animation: wave 2s ease-in-out infinite;
+}
+
+.t2 {
+  left: 55px;
+  animation: wave 2s ease-in-out infinite 0.2s;
+}
+
+.t3 {
+  left: 90px;
+  animation: wave 2s ease-in-out infinite 0.4s;
+}
+
+.t4 {
+  left: 125px;
+  animation: wave 2s ease-in-out infinite 0.6s;
+}
+
+/* Movimento suave dos tentáculos (sobe e desce) */
+@keyframes wave {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+
+/* ==============================
+   PLANKTON (personagem principal)
+   ============================== */
+
+.plankton {
+  position: relative;
+  /* Para permitir posicionamento absoluto dos elementos internos */
+  width: 120px;
+  height: 220px;
+  background: #5d8576;
+  /* Cor do corpo */
+  border-radius: 70% 70% 60% 60%;
+  /* Formato ovalado */
+  border: 3px solid #000;
+  /* Contorno preto */
+  box-shadow: inset 0 -6px 0 #4a6e61;
+  /* Sombra interna para dar volume */
+  animation: bounce 2s infinite ease-in-out;
+  /* Animação de pulo */
+
+  display: flex;
+  /* Para centralizar ou alinhar internamente */
+  text-align: center;
+  /* Centraliza conteúdo de texto, se houver */
+  margin: auto;
+  /* Centraliza horizontalmente */
+  bottom: -181px;
+  /* Move ligeiramente para baixo */
+
+}
+
+/* === Antenas === */
+/* Define o estilo das duas antenas do Plankton */
+.antena,
+.antena2 {
+  position: absolute;
+  /* Permite posicionar livremente dentro do corpo */
+  width: 6px;
+  /* Largura fina das antenas */
+  height: 100px;
+  /* Altura longa para dar destaque */
+  background-color: #3e594d;
+  /* Cor verde escura semelhante ao corpo */
+  border: 2px solid black;
+  /* Contorno preto */
+  border-radius: 5px;
+  /* Bordas levemente arredondadas */
+  top: -90px;
+  /* Posiciona acima da cabeça */
+}
+
+/* Antena do lado esquerdo */
+.antena {
+  left: 25px;
+  /* Afasta da borda esquerda */
+}
+
+/* Antena do lado direito */
+.antena2 {
+  right: 25px;
+  /* Afasta da borda direita */
+}
+
+/* === Olho principal === */
+/* Cria o olho central do Plankton */
+.olho {
+  position: absolute;
+  top: 40px;
+  /* Distância do topo do corpo */
+  left: 35px;
+  /* Centralização aproximada no eixo X */
+  width: 50px;
+  /* Diâmetro do olho */
+  height: 50px;
+  background: #f4ea9a;
+  /* Tom amarelado típico do olho dele */
+  border-radius: 50%;
+  /* Forma perfeitamente circular */
+  border: 3px solid #000;
+  /* Contorno preto bem marcado */
+  display: flex;
+  /* Ativa alinhamento interno */
+  justify-content: center;
+  /* Centraliza horizontalmente a pupila */
+  align-items: center;
+  /* Centraliza verticalmente a pupila */
+}
+
+/* === Pupila === */
+/* Pupila vermelha localizada no centro do olho */
+.poplila {
+  width: 22px;
+  height: 22px;
+  background: #f15a2b;
+  /* Vermelho alaranjado característico */
+  border-radius: 50%;
+  /* Forma redonda */
+  border: 2px solid black;
+  /* Contorno para contraste */
+}
+
+/* === Boca === */
+/* Estrutura principal da boca do Plankton */
+.boca {
+  position: absolute;
+  width: 70px;
+  height: 50px;
+  background: #a61b00;
+  /* Tom escuro avermelhado interno */
+  border-radius: 0 0 60px 60px;
+  /* Cria uma curva inferior sorridente */
+  border: 3px solid black;
+  bottom: 40px;
+  /* Posição na parte inferior do corpo */
+  left: 25px;
+  overflow: hidden;
+  /* Oculta os dentes que ultrapassem o contorno */
+}
+
+/* === Dentes === */
+/* Cada dente é um pequeno quadrado branco na parte superior da boca */
+.dente {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: white;
+  border: 2px solid black;
+  top: -2px;
+  /* Levemente acima para parecer embutido */
+}
+
+/* Define posição horizontal de cada dente individual */
+.dente:nth-child(1) {
+  left: 10px;
+}
+
+.dente:nth-child(2) {
+  left: 30px;
+}
+
+.dente:nth-child(3) {
+  left: 50px;
+}
+
+/* === Língua === */
+/* Pequeno detalhe rosado dentro da boca */
+.lingua {
+  position: absolute;
+  bottom: 5px;
+  /* Encostada na parte de baixo da boca */
+  left: 25px;
+  width: 20px;
+  height: 10px;
+  background: #f07979;
+  /* Rosa suave */
+  border-radius: 10px;
+  /* Arredondada para parecer orgânica */
+}
+
+/* === Sobrancelha === */
+/* Cria a sobrancelha preta acima do olho */
+.sobrancelha {
+  position: absolute;
+  top: 25px;
+  /* Fica acima do olho */
+  left: 25px;
+  width: 70px;
+  height: 10px;
+  background: black;
+  border-radius: 10px;
+  transform: rotate(-10deg);
+  /* Inclinação para expressão “maligna” */
+}
+
+/* === Braços === */
+/* Estrutura geral dos braços */
+.braco,
+.braco2 {
+  position: absolute;
+  width: 10px;
+  height: 60px;
+  background: #5d8576;
+  /* Mesma cor do corpo */
+  border: 3px solid black;
+  border-radius: 10px;
+  top: 70px;
+  /* Posição logo abaixo do olho */
+}
+
+/* Braço esquerdo abaixado e inclinado */
+.braco {
+  left: -20px;
+  transform: rotate(-40deg);
+}
+
+/* Braço direito levantado e inclinado */
+.braco2 {
+  right: -20px;
+  transform: rotate(40deg);
+}
+
+/* === Pernas === */
+/* Estrutura das pernas inferiores */
+.perna,
+.perna2 {
+  position: absolute;
+  bottom: -40px;
+  /* Ficam ligeiramente abaixo do corpo */
+  width: 10px;
+  height: 50px;
+  background: #5d8576;
+  border: 3px solid black;
+  border-radius: 10px;
+}
+
+/* Perna esquerda ligeiramente inclinada para fora */
+.perna {
+  left: 30px;
+  transform: rotate(10deg);
+}
+
+/* Perna direita ligeiramente inclinada para fora */
+.perna2 {
+  right: 30px;
+  transform: rotate(-10deg);
+}
+
+/* === Animações === */
+
+/* Animação das antenas — faz um leve balanço de um lado para o outro */
+@keyframes wave {
+
+  0%,
+  100% {
+    transform: rotate(20deg);
+  }
+
+  50% {
+    transform: rotate(-10deg);
+  }
+}
+
+/* Animação do corpo — cria um efeito de “pular” constante */
+@keyframes bounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
